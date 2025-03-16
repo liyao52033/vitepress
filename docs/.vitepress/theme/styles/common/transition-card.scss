@@ -1,0 +1,63 @@
+/* 下一页滑动效果 */
+.slide-next-move,
+.slide-next-enter-active,
+.slide-next-leave-active {
+  transition: all 0.5s ease !important;
+}
+.slide-next-enter-from {
+  transform: translateX(100%);
+  opacity: 0;
+}
+.slide-next-leave-to {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.slide-next-leave-active {
+  position: absolute;
+}
+
+/* 上一页滑动效果 */
+.slide-prev-move,
+.slide-prev-enter-active,
+.slide-prev-leave-active {
+  transition: all 0.5s ease !important;
+}
+.slide-prev-enter-from {
+  transform: translateX(-100%);
+  opacity: 0;
+}
+.slide-prev-leave-to {
+  transform: translateX(100%);
+  opacity: 0;
+}
+.slide-prev-leave-active {
+  position: absolute;
+}
+
+/* 上下滚动效果 */
+.scroll-move,
+.scroll-enter-active,
+.scroll-leave-active {
+  transition: all 0.5s ease;
+}
+.scroll-enter-from {
+  transform: translateY(70px);
+  opacity: 0;
+}
+.scroll-leave-to {
+  transform: translateY(-30px);
+  opacity: 0;
+}
+.scroll-leave-active {
+  position: absolute;
+}
+
+/* 淡入淡出 */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}

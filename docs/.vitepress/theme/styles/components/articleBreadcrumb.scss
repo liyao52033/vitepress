@@ -1,0 +1,21 @@
+@use "../mixins/bem" as *;
+@use "../mixins/function" as *;
+
+@include b(articleBreadcrumb) {
+  .el-breadcrumb__separator {
+    font-weight: 400;
+    margin: 0 2px;
+  }
+
+  .el-breadcrumb__item {
+    .el-breadcrumb__inner a {
+      font-weight: 400;
+      color: var(--el-text-color-regular);
+
+      &:hover {
+        color: getCssVar("theme-color");
+        cursor: pointer;
+      }
+    }
+  }
+}

@@ -1,0 +1,52 @@
+@use "../mixins/mixins" as *;
+@use "../mixins/function" as *;
+
+// 基础全局样式变量，和 .dark 呼应
+:root {
+  @include set-css-var("theme-color", var(--vp-c-brand-1));
+  @include set-css-var("lower-color-1", #86909c);
+  @include set-css-var("lower-color-2", #4e5969);
+  @include set-css-var("lower-color-3", #fdfdfd);
+  @include set-css-var("lower-color-4", rgba(253, 253, 253, 0.3));
+  @include set-css-var("lower-color-5", rgba(253, 253, 253, 0.5));
+  @include set-css-var("lower-color-6", rgba(253, 253, 253, 0.7));
+  @include set-css-var("bg-color-1", var(--vp-c-bg));
+  @include set-css-var("bg-color-2", rgb(255, 255, 255, 0.7));
+  @include set-css-var("bg-color-3", #f4f4f4);
+  @include set-css-var("shadow-1", 0 1px 8px 0 rgba(0, 0, 0, 0.1));
+  @include set-css-var("shadow-2", 0 2px 16px 0 rgba(0, 0, 0, 0.2));
+  @include set-css-var("line-color", rgba(0, 0, 0, 0.12));
+  @include set-css-var("item-bg-color-hover", #f8f8f8);
+}
+
+:root.dark {
+  @include set-css-var("theme-color", var(--vp-c-brand-1));
+  @include set-css-var("lower-color-1", #9facba);
+  @include set-css-var("lower-color-2", #bdc3cc);
+  @include set-css-var("lower-color-3", #21252b);
+  @include set-css-var("lower-color-4", rgba(34, 34, 34, 0.3));
+  @include set-css-var("lower-color-4", rgba(34, 34, 34, 0.5));
+  @include set-css-var("lower-color-4", rgba(34, 34, 34, 0.7));
+  @include set-css-var("bg-color-1", var(--vp-c-bg));
+  @include set-css-var("bg-color-2", rgb(20, 20, 20, 0.7));
+  @include set-css-var("bg-color-3", #27272b);
+  @include set-css-var("shadow-1", 0 1px 8px 0 rgba(0, 0, 0, 0.6));
+  @include set-css-var("shadow-2", 0 2px 16px 0 rgba(0, 0, 0, 0.7));
+  @include set-css-var("line-color", rgba(0, 0, 0, 0.12));
+  @include set-css-var("item-bg-color-hover", #27272b);
+}
+
+// 全局样式变量
+:root {
+  @include set-css-var("gap1", 10px);
+  @include set-css-var("gap2", 20px);
+  @include set-css-var("gap3", 30px);
+  @include set-css-var("code-block-fold-height", 40px);
+  @include set-css-var("code-block-lang-transform", uppercase);
+}
+
+// 使用自定义自定义全局样式变量
+:root {
+  @include set-css-var("article-gap", getCssVar("gap1"));
+  @include set-css-var("friend-gap", getCssVar("gap2"));
+}

@@ -1,0 +1,9 @@
+@use "../mixins/bem" as *;
+
+@include b(pagination) {
+  padding: 15px 2px 0;
+
+  &.hidden {
+    display: none;
+  }
+}

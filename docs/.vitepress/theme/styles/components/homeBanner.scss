@@ -1,0 +1,155 @@
+@use "../mixins/bem" as *;
+@use "../mixins/function" as *;
+
+@include b(banner) {
+  position: relative;
+  &.big-img {
+    height: 100vh;
+    margin-top: calc(-1 * var(--vp-nav-height));
+    background: center center / cover no-repeat;
+
+    .mask {
+      width: 100%;
+      height: 100%;
+      background-color: var(--banner-mask-bg-color);
+    }
+  }
+
+  &.grid,
+  &.default {
+    min-height: 450px;
+  }
+
+  @include e(content) {
+    padding-top: 3rem;
+    color: var(--banner-text-color);
+    text-align: center;
+
+    &.center {
+      position: absolute;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @include e(content__title) {
+      font-size: var(--banner-title-text);
+      font-weight: 600;
+      line-height: 1.25;
+    }
+
+    @include e(content__desc) {
+      font-size: var(--banner-desc-text);
+      max-width: 50rem;
+      line-height: 1.3;
+      margin: 1.5rem auto;
+      height: 32px;
+
+      .switch {
+        animation: fadeIn 1s ease-in-out;
+        cursor: pointer;
+      }
+
+      .typed {
+        opacity: 1;
+        &.is-animation {
+          animation: fadeOut 1s infinite;
+        }
+      }
+    }
+  }
+
+  @include e(feature) {
+    max-width: 1100px;
+    margin: 2.5rem auto 0;
+    overflow: hidden;
+    padding: 2rem 0;
+
+    @include e(feature__item) {
+      flex-grow: 1;
+      flex-basis: 30%;
+      max-width: 30%;
+      color: var(--banner-text-color);
+
+      .feature-img {
+        width: 10rem;
+        height: 10rem;
+        animation: heart 1.2s ease-in-out 0s infinite alternate;
+        animation-play-state: paused;
+      }
+
+      .feature-title {
+        font-weight: 500;
+        font-size: 1.3rem;
+        margin-top: 1rem;
+      }
+
+      .feature-description {
+        opacity: 0.8;
+        margin: 1rem;
+      }
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* 大图风格时，指定顶部导航栏样式 */
+.VPNavBar.home.big-img-nav-bar {
+  background-color: transparent !important;
+
+  .VPNavBarTitle .title,
+  .VPNavBarMenuLink,
+  .VPNavBarMenuGroup .text,
+  .VPSocialLink {
+    color: #ffffff;
+
+    &.active,
+    &:hover {
+      color: getCssVar("theme-color");
+    }
+  }
+
+  .divider {
+    display: none;
+  }
+
+  .VPNavBarSearch .DocSearch-Button {
+    background-color: transparent;
+
+    .vp-icon,
+    .DocSearch-Button-Placeholder {
+      color: #ffffff;
+    }
+
+    .DocSearch-Button-Key {
+      color: #ffffff;
+      border: none;
+      &::after {
+        color: #ffffff;
+      }
+    }
+  }
+
+  .VPNavBarTranslations {
+    .text {
+      color: #ffffff;
+    }
+  }
+}

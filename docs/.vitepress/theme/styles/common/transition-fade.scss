@@ -1,0 +1,10 @@
+.mode-enter-active,
+.mode-leave-active {
+  transition: all 0.3s ease;
+}
+
+.mode-enter-from,
+.mode-leave-to {
+  opacity: 0;
+  transform: scale(0.8);
+}
