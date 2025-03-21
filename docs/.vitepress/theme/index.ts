@@ -1,11 +1,14 @@
 import DefaultTheme from 'vitepress/theme'
-import { Theme } from "vitepress";
+import { Theme, inBrowser } from "vitepress";
 import MyLayout from "./layout/index.vue"
 import Login from "./components/Login/Login.vue";
 import { checkAuth } from "./components/Login/helper.js";
 import Busuanzi from "./helper/busuanzi";
+import { NProgress } from 'nprogress-v2/dist/index.js' // 进度条组件
+import 'nprogress-v2/dist/index.css' // 进度条样式
 import 'element-plus/dist/index.css'
 import './styles/index.scss'
+
 
 export {
     createContainerThenUse,
@@ -21,6 +24,14 @@ export default {
 
         app.component('Login', Login)
 
+        if(inBrowser){
+            NProgress.configure({ showSpinner: false })
+            router.onBeforeRouteChange = () => {
+                NProgress.start() // 开始进度条
+            }
+        }
+
+
         // 获取可能已有的 onAfterRouteChange
         const selfOnAfterRouteChange = router.onAfterRouteChange;
         router.onAfterRouteChange = (href: string) => {
@@ -29,6 +40,10 @@ export default {
             // 调用自己的函数
             login();
             Busuanzi()
+            if(inBrowser){
+                NProgress.done() // 停止进度条
+            }
+
 
         };
         const login = () => {

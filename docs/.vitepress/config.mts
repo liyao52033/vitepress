@@ -51,6 +51,7 @@ export default defineConfig({
     },
     markdown: {
         lineNumbers: true,
+        externalLinkIcon: true,
         image: {
             lazyLoading: true
         },
@@ -107,12 +108,13 @@ export default defineConfig({
             { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
         ],
         lastUpdated: {
-            text: 'Updated at',
+            text: '上次更新时间',
             formatOptions: {
-                dateStyle: 'full',
+                dateStyle: 'short',
                 timeStyle: 'medium'
             }
-        }
+        },
+
 
 
     }

@@ -58,7 +58,7 @@ onMounted(() => {
           <div class="bullshit__info">
              请检查您输入的网址是否正确，或返回首页。
           </div>
-          <a href="/" class="bullshit__return-home">回首页</a>
+          <a href="/docs/public" class="bullshit__return-home">回首页</a>
         </div>
       </div>
     </div>
