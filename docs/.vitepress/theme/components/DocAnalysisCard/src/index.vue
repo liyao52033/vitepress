@@ -2,7 +2,7 @@
 import { computed, Ref, unref } from "vue";
 import { useData } from "vitepress";
 import { usePosts, useUnrefData } from "../../configProvider";
-import { useNamespace, useBuSunZi } from "../../../hooks";
+import { useNamespace } from "../../../hooks";
 import { dayDiff, getNowDate, isFunction, timeDiff } from "../../../helper";
 import { HomeCard } from "../../";
 import docAnalysisSvg from "../../../assets/svg/docAnalysis";
@@ -33,9 +33,6 @@ const finalTitle = computed(() => {
 });
 
 const createToNowDay = dayDiff(createTime || getNowDate());
-
-// 通过不蒜子获取访问量和访客数
-const { sitePv, siteUv, isGet } = useBuSunZi(siteIteration);
 
 const posts = usePosts();
 
@@ -113,15 +110,13 @@ const docAnalysisList = computed<DocAnalysisResolve[]>(() => [
   {
     key: "viewCount",
     label: "本站被访问了",
-    originValue: unref(sitePv),
-    value: isGet ? `${unref(sitePv)} 次` : "Get...",
+    value: `<span id="busuanzi_site_pv" ></span>次`,
     show: siteView,
   },
   {
     key: "visitCount",
     label: "本站曾来访过",
-    originValue: unref(siteUv),
-    value: isGet ? `${unref(siteUv)} 人` : "Get...",
+    value: `<span id="busuanzi_site_uv" ></span>人`,
     show: siteView,
   },
   ...appendInfo,
@@ -141,11 +136,11 @@ if (overrideInfo.length) {
 
 <template>
   <HomeCard :title="finalTitle" :class="ns.b()">
-    <template v-for="item in docAnalysisList" :key="item.key">
-      <div v-if="item.show !== false" :class="ns.e('item')">
-        <span v-html="item.label" />
-        <span v-html="item.value" />
+      <div v-for="item in docAnalysisList" :key="item.key">
+        <div v-if="item.show !== false" :class="ns.e('item')">
+          <span v-html="item.label" />
+          <span v-html="item.value" />
+        </div>
       </div>
-    </template>
   </HomeCard>
 </template>

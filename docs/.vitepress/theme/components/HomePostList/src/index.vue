@@ -133,6 +133,7 @@ const handlePagination = () => {
 
 <style lang="scss" scoped>
 .Home{
+  margin-top: 2rem;
   display: flex;
   justify-content: center;
   align-items: start;

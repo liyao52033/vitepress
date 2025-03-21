@@ -2,6 +2,7 @@
  export * from "./ArticleBreadcrumb";
  export * from "./ArticleImagePreview"
  export * from "./ArticlePageStyle"
+ export * from "./CodeBlockToggle"
  export * from "./CataloguePage";
  export * from "./DocAnalysisCard";
  export * from "./Footer";

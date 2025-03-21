@@ -1,49 +1,22 @@
 import DefaultTheme from 'vitepress/theme'
-import { h, resolveComponent  } from "vue";
 import { Theme } from "vitepress";
-import NotFound from "./components/NotFound.vue";
-import GlobalTip from "./components/GlobalTip.vue";
+import MyLayout from "./layout/index.vue"
 import Login from "./components/Login/Login.vue";
-import CodeBlockToggle from "./components/CodeBlockToggle/index.vue"
-import pageInfo from "./components/ArtickeInfo/pageInfo.vue"
-import usePermalink from "vitepress-plugin-link/usePermalink";
 import { checkAuth } from "./components/Login/helper.js";
-import {
-    Footer,
-    HomePostList,
-    ArchivesPage,
-    CataloguePage,
-    ArticleImagePreview,
-    ArticlePageStyle
-} from "./components/index";
+import Busuanzi from "./helper/busuanzi";
 import 'element-plus/dist/index.css'
 import './styles/index.scss'
 
+export {
+    createContainerThenUse,
+    createContainerThenGet,
+    createContainersThenUse,
+    createContainersThenGet,
+} from "./markdown/plugins/container";
 
 export default {
     extends: DefaultTheme,
-    Layout() {
-
-        // 开启监听 permalink
-        usePermalink().startWatch();
-
-        // 解析 `<ClientOnly>` 组件
-        const ClientOnly = resolveComponent("ClientOnly");
-
-        return h(DefaultTheme.Layout, null, {
-            'not-found': () => h(ClientOnly, ()=> h(NotFound)),
-            'doc-top': () => h(ClientOnly, () => h(GlobalTip)),
-            'home-features-after': () => h(ClientOnly, () => h(HomePostList)),
-            'layout-bottom': () => h(ClientOnly, () => h(Footer)),
-            'page-top': () => h(ClientOnly, () => [h(ArchivesPage), h(CataloguePage)]),
-            'doc-before': () => h(ClientOnly, () => [
-                h(CodeBlockToggle),
-                h(pageInfo),
-                h(ArticleImagePreview),
-                h(ArticlePageStyle)
-            ])
-        });
-    },
+    Layout: MyLayout,
     enhanceApp({ app, router, siteData }) {
 
         app.component('Login', Login)
@@ -55,6 +28,8 @@ export default {
             selfOnAfterRouteChange?.(href);
             // 调用自己的函数
             login();
+            Busuanzi()
+
         };
         const login = () => {
             if (router.route.path !== '/') {

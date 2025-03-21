@@ -2,18 +2,13 @@
 date: 2025-03-16 00:03:50
 title: 自动生成frontmatter
 permalink: /pages/eb5aff
+top: 1
 author:
   name: 华总
   link: https://xiaoying.org.cn
 categories:
   - 工具类
 ---
-
-
-
-
-
-
 
 # vitepress-plugin-setfrontmatter
 
@@ -30,15 +25,15 @@ categories:
 
 ::: code-group
 
-```sh [npm]
+```shell [npm]
 npm install vitepress-plugin-setfrontmatter -D
 ```
 
-```sh [yarn]
+```shell [yarn]
 yarn add vitepress-plugin-setfrontmatter -D
 ```
 
-```sh [pnpm]
+```shell [pnpm]
 pnpm i vitepress-plugin-setfrontmatter -D
 ```
 
@@ -131,15 +126,15 @@ layout: home
 
 ::: code-group
 
-```sh [npm]
+```shell [npm]
 npm install vitepress-plugin-catalogue -D
 ```
 
-```sh [yarn]
+```shell [yarn]
 yarn add vitepress-plugin-catalogue -D
 ```
 
-```sh [pnpm]
+```shell [pnpm]
 pnpm i vitepress-plugin-catalogue -D
 ```
 

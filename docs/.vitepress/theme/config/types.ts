@@ -5,6 +5,7 @@ import type { DocAnalysisOption } from "vitepress-plugin-doc-analysis";
 // @ts-ignore
 import type { AutoFrontmatterOption } from "vitepress-plugin-auto-frontmatter";
 import type { ImageViewerProps, PaginationProps } from "element-plus";
+import type { ContainerLabel, ContainerOption } from "../markdown/plugins/container";
 import type { Ref, VNode } from "vue";
 import type { Route } from "vitepress";
 
@@ -148,6 +149,16 @@ export interface TkThemeConfig {
    * markdown 插件列表，请不要在使用 vitepress.markdown.config 配置 md 插件，因为 config 是一个函数，vitepress 并没有做多个 config 合并，因此使用 vitepress.markdown.config 配置会覆盖主题内置 md 插件
    */
   markdownPlugins?: any[];
+
+  /**
+   * 内置 markdown 容器的 Label 配置
+   */
+  containerLabel?: ContainerLabel;
+
+  /**
+   * 自定义 markdown 容器配置
+   */
+  markdownContainers?: ContainerOption[];
 }
 
 export interface BodyBgImg {

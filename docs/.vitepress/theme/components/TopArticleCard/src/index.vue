@@ -17,9 +17,9 @@ const posts = usePosts();
 const { theme, frontmatter } = useUnrefData();
 // 精选文章配置项
 const {
-  limit = 4,
+  limit = 5,
   title = `${topArticleSvg}精选文章`,
-  autoPage = false,
+  autoPage = true,
   pageSpeed = 4000,
 }: TopArticle = { ...theme.topArticle, ...frontmatter.tk?.topArticle };
 

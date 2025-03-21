@@ -114,16 +114,16 @@
 .VPNavBar.home.big-img-nav-bar {
   background-color: transparent !important;
 
-  .VPNavBarTitle .title,
-  .VPNavBarMenuLink,
-  .VPNavBarMenuGroup .text,
+ // .VPNavBarTitle .title,
+ // .VPNavBarMenuLink,
+ // .VPNavBarMenuGroup .text,
   .VPSocialLink {
     color: #ffffff;
 
-    &.active,
-    &:hover {
-      color: getCssVar("theme-color");
-    }
+  //  &.active,
+  //  &:hover {
+  //    color: getCssVar("theme-color");
+  //  }
   }
 
   .divider {

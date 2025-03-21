@@ -1,5 +1,9 @@
 @use "./base";
 
+@use "./vp-plus/container";
+@use "./vp-plus/blockquote";
+@use "./vp-plus/rainbow";
+
 @use "./components/archivesPage";
 @use "./components/articleAnalyze";
 @use "./components/articleInfo";

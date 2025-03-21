@@ -5,7 +5,7 @@ import { useNamespace } from "../../../hooks";
 import { TkContentData } from "../../../post/types";
 import { createImageViewer } from "../../ImageViewer";
 import { useUnrefData } from "../../configProvider";
-import ArticleInfo from "../../ArtickeInfo/ArticleInfo.vue"
+import ArticleInfo from "../../ArticleInfo/article.vue"
 import { Article, Post } from "../../../config/types";
 
 defineOptions({ name: "HomePostItem" });

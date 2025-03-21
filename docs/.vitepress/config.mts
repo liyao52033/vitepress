@@ -32,10 +32,10 @@ export default defineConfig({
     description: "A VitePress Site",
     head: [
         ['link', { rel: 'icon', href: '/img/logo.png' }],
-        ['link', { rel: 'stylesheet', href: '//at.alicdn.com/t/font_3114978_qe0b39no76.css' }],
-        ['link', { rel: 'stylesheet', href: '//at.alicdn.com/t/font_3077305_pt8umhrn4k9.css' }],
-        ['link', { rel: 'stylesheet', href: '//at.alicdn.com/t/c/font_4397361_l7w8pg1gfn.css' }],
-        ['link', { rel: 'stylesheet', href: '//at.alicdn.com/t/font_3114978_qe0b39no76.css' }],
+        // ['link', { rel: 'stylesheet', href: '//at.alicdn.com/t/font_3114978_qe0b39no76.css' }],
+        // ['link', { rel: 'stylesheet', href: '//at.alicdn.com/t/font_3077305_pt8umhrn4k9.css' }],
+        // ['link', { rel: 'stylesheet', href: '//at.alicdn.com/t/c/font_4397361_l7w8pg1gfn.css' }],
+        // ['link', { rel: 'stylesheet', href: '//at.alicdn.com/t/font_3114978_qe0b39no76.css' }],
         [
             "meta",
             {
@@ -66,7 +66,6 @@ export default defineConfig({
         'articles/login.md': 'login.md',
     },
     cleanUrls: true,
-    lastUpdated: true,
     cacheDir: '.vite-cache',
     sitemap: {
         hostname: 'https://liyao52033.github.io/'
@@ -107,6 +106,13 @@ export default defineConfig({
         socialLinks: [
             { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
         ],
+        lastUpdated: {
+            text: 'Updated at',
+            formatOptions: {
+                dateStyle: 'full',
+                timeStyle: 'medium'
+            }
+        }
 
 
     }

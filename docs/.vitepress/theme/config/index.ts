@@ -10,11 +10,12 @@ import { UserConfig } from "vitepress";
 import { PluginOption } from "vite";
 import { transformData, transformRaw } from "../post";
 import { Post, TkContentData } from "../post/types";
-import { codeArrowPlugin } from "../markdown";
+import { codeArrowPlugin, imgCardPlugin, navCardPlugin, todoPlugin, shareCardPlugin } from "../markdown";
+import { containerPlugins, createContainersThenUse } from "../markdown/plugins/container";
 import { createCategory, createPermalink } from "../utils/addFrontmatter";
 
 export default function tkThemeConfig(config: TkThemeConfig = {}): UserConfig {
-  const { vitePlugins, markdownPlugins = [], ...tkThemeConfig } = config;
+  const { vitePlugins, markdownPlugins = [], markdownContainers = [], containerLabel, ...tkThemeConfig } = config;
   const {
     sidebar=true,
     sidebarOption,
@@ -129,7 +130,14 @@ export default function tkThemeConfig(config: TkThemeConfig = {}): UserConfig {
     },
     markdown: {
       config: md => {
-        [codeArrowPlugin].forEach(plugin => md.use(plugin));
+
+        md.use(containerPlugins, containerLabel);
+
+        [imgCardPlugin, navCardPlugin, todoPlugin, shareCardPlugin, codeArrowPlugin].forEach(plugin => md.use(plugin, containerLabel));
+
+        // 创建用户配置的自定义容器
+        createContainersThenUse(md, markdownContainers);
+
         // 用户配置的 markdown 插件
         markdownPlugins.forEach(plugin => md.use(plugin));
       },

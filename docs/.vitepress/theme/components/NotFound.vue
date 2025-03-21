@@ -1,58 +1,80 @@
 <script setup>
+import { ref, onMounted } from "vue";
+
 // 设置组件名称
-defineOptions ({
+defineOptions({
   name: "NotFound",
 });
+
+
 const message = "当前页面不存在"
+const isShow = ref(false)
+
+onMounted(() => {
+  setTimeout(() => {
+    isShow.value = true
+  }, 200) // 可调整延迟时间（单位：毫秒）
+})
 </script>
 
 <template>
-  <div class="wscn-http404-container">
-    <div class="wscn-http404">
-      <div class="pic-404">
-        <img
-            class="pic-404__parent"
-            src="/404_images/404.png"
-            alt="404"
-        />
-        <img
-            class="pic-404__child left"
-            src="/404_images/404_cloud.png"
-            alt="404"
-        />
-        <img
-            class="pic-404__child mid"
-            src="/404_images/404_cloud.png"
-            alt="404"
-        />
-        <img
-            class="pic-404__child right"
-            src="/404_images/404_cloud.png"
-            alt="404"
-        />
-      </div>
-      <div class="bullshit">
-        <div class="bullshit__oops">OOPS!</div>
-        <div class="bullshit__info">
-          All rights reserved
-          <a
-              style="color: #20a0ff"
-              href="https://wallstreetcn.com"
-              target="_blank"
-          >wallstreetcn</a
-          >
+  <transition name="NotFound">
+    <div class="wscn-http404-container" v-if="isShow">
+      <div class="wscn-http404">
+        <div class="pic-404">
+          <img
+              class="pic-404__parent"
+              src="/404_images/404.png"
+              alt="404"
+          />
+          <img
+              class="pic-404__child left"
+              src="/404_images/404_cloud.png"
+              alt="404"
+          />
+          <img
+              class="pic-404__child mid"
+              src="/404_images/404_cloud.png"
+              alt="404"
+          />
+          <img
+              class="pic-404__child right"
+              src="/404_images/404_cloud.png"
+              alt="404"
+          />
         </div>
-        <div class="bullshit__headline">{{ message }}</div>
-        <div class="bullshit__info">
-					 请检查您输入的网址是否正确，或返回首页。
+        <div class="bullshit">
+          <div class="bullshit__oops">OOPS!</div>
+          <div class="bullshit__info">
+            All rights reserved
+            <a
+                style="color: #20a0ff"
+                href="https://wallstreetcn.com"
+                target="_blank"
+            >wallstreetcn</a
+            >
+          </div>
+          <div class="bullshit__headline">{{ message }}</div>
+          <div class="bullshit__info">
+             请检查您输入的网址是否正确，或返回首页。
+          </div>
+          <a href="/" class="bullshit__return-home">回首页</a>
         </div>
-        <a href="" class="bullshit__return-home">回首页</a>
       </div>
     </div>
-  </div>
+  </transition>
 </template>
 
-<style>
+<style scoped>
+
+.NotFound-enter-active {
+  transition: opacity 0.5s ease;
+}
+
+.NotFound-enter-from {
+  opacity: 0;
+}
+
 .wscn-http404-container {
   position: absolute;
   top: 40%;

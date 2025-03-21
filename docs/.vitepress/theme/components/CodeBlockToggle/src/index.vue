@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { nextTick, onMounted } from "vue";
 import { useRouter } from "vitepress";
-import { useNamespace } from "../../hooks";
+import { useNamespace } from "../../../hooks";
 
 defineOptions({ name: "CodeBlockToggle" });
 

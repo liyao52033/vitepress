@@ -1,15 +1,16 @@
 <script setup lang="ts" >
 import { computed, nextTick, onMounted, ref, unref } from "vue";
 import { useRoute, useData } from "vitepress";
-import { Reading, Clock, View } from "@element-plus/icons-vue";
+import { Reading, Clock, View, PieChart } from "@element-plus/icons-vue";
 import { FileInfo } from "vitepress-plugin-doc-analysis";
-import { useNamespace, useBuSunZi } from "../../hooks";
+import { useNamespace } from "../../hooks";
 import { ArticleBreadcrumb }from "../";
-import ArticleInfo from "./ArticleInfo.vue";
+import ArticleInfo from "./article.vue";
 import Icon from "../Icon/index"
 import { Article, DocAnalysis } from "../../config/types";
 import { TkContentData } from "../../post/types";
 import { useUnrefData } from "../configProvider";
+
 
 defineOptions({ name: "pageInfo" });
 
@@ -58,9 +59,6 @@ const isShowInfo = computed(() => {
   return false;
 });
 
-// 通过不蒜子获取页面访问量
-const { pagePv, isGet } = useBuSunZi(pageIteration);
-
 const baseInfoRef = ref<HTMLDivElement>();
 
 const teleportInfo = () => {
@@ -103,7 +101,12 @@ onMounted(() => {
 
       <div v-if="pageView" class="flx-center">
         <Icon><View /></Icon>
-        <a title="浏览量" class="hover-color">{{ isGet ? pagePv : "Get..." }}</a>
+         <a title="本文总阅读量" id="busuanzi_page_pv" class="hover-color" href="https://busuanzi.9420.ltd" target="_blank"></a>
+      </div>
+
+       <div v-if="pageView" class="flx-center">
+        <Icon><PieChart /></Icon>
+         <a title="本文总访客量" id="busuanzi_page_uv" class="hover-color" href="https://busuanzi.9420.ltd" target="_blank"></a>
       </div>
     </div>
   </div>
