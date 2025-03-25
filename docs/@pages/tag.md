@@ -1,7 +1,7 @@
 ---
 tagsPage: true
 title: 标签
-permalink: /tags/
+permalink: /tags
 article: false
 layout: home
 ---

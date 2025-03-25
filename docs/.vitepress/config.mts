@@ -3,11 +3,14 @@ import { nav } from "./theme/config/nav"
 import tkThemeConfig from "./theme/config/index";
 
 const tkConfig = tkThemeConfig({
+    webSiteInfo: {
+        createTime: "2025-03-08",
+    },
     vitePlugins: {
         permalinkOption: { path: "docs",  ignoreList: ["login.md"], },
         sidebarOption: {
             path: "docs",
-            collapsed: true,
+          //  collapsed: false,
             depth: 2,
             ignoreIndexMd: true,
             ignoreList: ["login.md", "@pages", "utils", "@fragment"],
@@ -69,7 +72,7 @@ export default defineConfig({
     cleanUrls: true,
     cacheDir: '.vite-cache',
     sitemap: {
-        hostname: 'https://liyao52033.github.io/'
+        hostname: 'https://vitepress.xiaoying.org.cn/'
     },
     themeConfig: {
         logo: '/img/logo.png',
@@ -105,7 +108,7 @@ export default defineConfig({
             next: "下一页",
         },
         socialLinks: [
-            { icon: 'github', link: 'https://github.com/vuejs/vitepress' }
+            { icon: 'github', link: 'https://github.com/liyao52033/liyao-vue-common' }
         ],
         lastUpdated: {
             text: '上次更新时间',

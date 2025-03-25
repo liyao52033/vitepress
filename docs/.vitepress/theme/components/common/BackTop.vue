@@ -12,7 +12,7 @@
 import { onBeforeUnmount, onMounted, ref } from "vue";
 
 // 是否显示返回顶部
-const showBackTop = ref(true);
+const showBackTop = ref(false);
 
 function scrollToTop() {
   window.scrollTo({
@@ -33,7 +33,7 @@ function throttle(fn, delay = 100) {
   };
 }
 const onScroll = throttle(
-    () => (showBackTop.value = Boolean(window.scrollY > 100))
+    () => (showBackTop.value = Boolean(window.scrollY > 300))
 );
 
 // 监听滚动事件

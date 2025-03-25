@@ -11,10 +11,10 @@ hero:
   actions:
     - theme: brand
       text: 快速开始
-      link: /pages/64f57d
+      link: /pages/38c477
     - theme: brand
       text: 组件文档
-      link: /pages/2e6e5f/
+      link: /pages/ab747d
     - theme: alt
       text: 个人主页
       link: https://xiaoying.org.cn

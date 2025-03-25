@@ -19,11 +19,10 @@ const { theme: themeRef } = useData();
 const {
   createTime,
   siteView = true,
-  siteIteration,
   title = `${docAnalysisSvg}站点信息`,
   overrideInfo = [],
   appendInfo = [],
-}: DocAnalysis = { ...theme.docAnalysis, ...frontmatter.tk?.docAnalysis };
+}: DocAnalysis = { ...theme.webSiteInfo, ...frontmatter.tk?.docAnalysis };
 
 const docAnalysisInfo = computed(() => unref(themeRef).docAnalysisInfo || {});
 

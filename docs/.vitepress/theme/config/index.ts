@@ -23,7 +23,6 @@ export default function tkThemeConfig(config: TkThemeConfig = {}): UserConfig {
     permalinkOption,
     mdH1 = true,
     catalogueOption,
-    docAnalysis = true,
     docAnalysisOption = {},
     fileContentLoaderIgnore = [],
     autoFrontmatter = true,
@@ -90,10 +89,8 @@ export default function tkThemeConfig(config: TkThemeConfig = {}): UserConfig {
   // 自动给 MD 添加一级标题插件
   if (mdH1) plugins.push(MdH1());
   // 文档内容分析插件
-  if (docAnalysis) {
-    docAnalysisOption.ignoreList = [...(sidebarOption?.ignoreList || []), ...ignoreDir.docAnalysis];
-    plugins.push(DocAnalysis(docAnalysisOption));
-  }
+  docAnalysisOption.ignoreList = [...(sidebarOption?.ignoreList || []), ...ignoreDir.docAnalysis];
+  plugins.push(DocAnalysis(docAnalysisOption));
 
   // 主题强内置插件
   if (tkTheme) {
