@@ -10,6 +10,10 @@ export const nav: DefaultTheme.Config["nav"]  = [
 		"link": "/pages/ab747d",
 	},
 	{
+		"text": "后端",
+		"link": "/pages/22357f",
+	},
+	{
 		"text": "资源",
 		"link": "/pages/74c740",
 	}
