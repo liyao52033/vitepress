@@ -10,7 +10,7 @@ const tkConfig = tkThemeConfig({
         permalinkOption: { path: "docs",  ignoreList: ["login.md"], },
         sidebarOption: {
             path: "docs",
-          //  collapsed: false,
+            collapsed: false,
             depth: 2,
             ignoreIndexMd: true,
             ignoreList: ["login.md", "@pages", "utils", "@fragment"],
@@ -35,10 +35,6 @@ export default defineConfig({
     description: "A VitePress Site",
     head: [
         ['link', { rel: 'icon', href: '/img/logo.png' }],
-        // ['link', { rel: 'stylesheet', href: '//at.alicdn.com/t/font_3114978_qe0b39no76.css' }],
-        // ['link', { rel: 'stylesheet', href: '//at.alicdn.com/t/font_3077305_pt8umhrn4k9.css' }],
-        // ['link', { rel: 'stylesheet', href: '//at.alicdn.com/t/c/font_4397361_l7w8pg1gfn.css' }],
-        // ['link', { rel: 'stylesheet', href: '//at.alicdn.com/t/font_3114978_qe0b39no76.css' }],
         [
             "meta",
             {
