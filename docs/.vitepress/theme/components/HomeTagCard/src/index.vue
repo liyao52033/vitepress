@@ -23,7 +23,7 @@ const {
   pageTitle = `${tagSvg}全部标签`,
   homeTitle = `${tagSvg}热门标签`,
   limit = 21,
-  autoPage = false,
+  autoPage = true,
   pageSpeed = 4000,
   bgColor,
 }: Tag = { ...theme.tag, ...frontmatter.tk?.tag };

@@ -32,7 +32,7 @@ export const getSortPostsByDateAndSticky = (posts: TkContentData[]): TkContentDa
   // sort 会改变原数组，因此确保参数不被修改，复杂一份
   const p = [...posts];
   return p.sort((prev, next) => {
-    // 先根据 sticky 排序，sticky 值越大越靠前，如果 sticky 相同，则按时间排序
+    // 先根据 sticky 排序，sticky 值越小越靠前，如果 sticky 相同，则按时间排序
     const prevSticky = prev.frontmatter.sticky;
     const nextSticky = next.frontmatter.sticky;
 

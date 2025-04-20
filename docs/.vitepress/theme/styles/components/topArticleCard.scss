@@ -22,12 +22,13 @@
         font-weight: 600;
         font-style: italic;
 
-        &.sticky {
+        &.sticky, &.top {
           font-size: getCssVar("home-font-size-small");
           background-color: getCssVar("num-bg-color");
           color: #ffffff;
           border-radius: 8px 0;
         }
+
       }
 
       @include e(list__item__info) {

@@ -41,6 +41,10 @@ export interface TkThemeConfig {
    */
   social?: Social[];
   /**
+   * 作者信息，支持在 frontmatter 配置，如果在首页（index.md），格式为 tk.author.[key]，如果在文章页（非 index.md），格式为 author.[key]
+   */
+  author?: string;
+  /**
    * 页脚配置
    */
   footerInfo?: FooterInfo;

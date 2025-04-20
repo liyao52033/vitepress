@@ -25,7 +25,11 @@ const {
 
 const topArticleList = computed(() => {
   const sortPostsByDateAndSticky: TkContentData[] = unref(posts).sortPostsByDateAndSticky;
-  return sortPostsByDateAndSticky.filter(p => p.frontmatter.top)?.map((p, index) => ({ ...p, num: index + 1 }));
+  return sortPostsByDateAndSticky
+    .filter(p => p.frontmatter.top !== undefined)
+    .sort((a, b) => (a.frontmatter.top || 0) - (b.frontmatter.top || 0))
+    .map((p, index) => ({ ...p, num: index + 1}));
+ // return sortPostsByDateAndSticky.filter(p => p.frontmatter.top)?.map((p, index) => ({ ...p, num: index + 1 }));
 });
 
 const pageNum = ref(1);
@@ -50,6 +54,7 @@ const getStyle = (num: number, index: number) => {
     top: `calc(${index} * (calc(${ns.cssVar("gap1")} + ${unref(itemRefs)?.[index]?.getBoundingClientRect().height || 0}px)))`,
   };
 };
+
 </script>
 
 <template>
@@ -78,12 +83,12 @@ const getStyle = (num: number, index: number) => {
           :class="ns.e('list__item')"
           :style="getStyle(item.num - 1, index)"
         >
-          <span :class="['num', { sticky: item.frontmatter.sticky }]">{{ item.num }}</span>
+          <span :class="['num', { top: item.frontmatter.top !== undefined }]">{{ item.num }}</span>
           <div :class="ns.e('list__item__info')">
             <a :href="item.url" class="hover-color flx-align-center">
               <span class="title sle">{{ item.title }}</span>
             </a>
-            <div class="date">{{ item.date }}</div>
+            <div class="date">{{ item.date.split(' ')[0] }}</div>
           </div>
         </li>
       </TransitionGroup>
@@ -92,3 +97,4 @@ const getStyle = (num: number, index: number) => {
     </template>
   </HomeCard>
 </template>
+
