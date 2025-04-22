@@ -14,7 +14,7 @@ import { codeArrowPlugin, imgCardPlugin, navCardPlugin, todoPlugin, shareCardPlu
 import { containerPlugins, createContainersThenUse } from "../markdown/plugins/container";
 import { createCategory, createPermalink } from "../utils/addFrontmatter";
 
-export default function tkThemeConfig(config: TkThemeConfig = {}): UserConfig {
+export default function tkThemeConfig(config: TkThemeConfig = { tkTheme: true }): UserConfig {
   const { vitePlugins, markdownPlugins = [], markdownContainers = [], containerLabel, ...tkThemeConfig } = config;
   const {
     sidebar=true,

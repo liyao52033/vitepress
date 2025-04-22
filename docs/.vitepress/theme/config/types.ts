@@ -11,6 +11,13 @@ import type { Ref } from "vue";
 export interface TkThemeConfig {
 
   /**
+   * 是否启用主题，默认为 true
+   *
+   * @default true
+   */
+  tkTheme: boolean;
+
+  /**
    * 文章列表配置，支持在首页 index.md 的 frontmatter 配置，格式为 tk.post.[key]
    */
   post?: Post;
