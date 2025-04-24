@@ -10,7 +10,7 @@ const tkConfig = tkThemeConfig({
         permalinkOption: { path: "docs",  ignoreList: ["login.md"], },
         sidebarOption: {
             path: "docs",
-            collapsed: false,
+            collapsed: true,
             depth: 2,
             ignoreIndexMd: true,
             ignoreList: ["login.md", "@pages", "utils", "@fragment"],
