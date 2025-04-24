@@ -7,7 +7,7 @@ export const nav: DefaultTheme.Config["nav"]  = [
 	},
 	{
 		"text": "组件",
-		"link": "/pages/ab747d",
+		"link": "/pages/7dbc39",
 	},
 	{
 		"text": "后端",

@@ -14,7 +14,7 @@ hero:
       link: /pages/38c477
     - theme: brand
       text: 组件文档
-      link: /pages/ab747d
+      link: /pages/7dbc39
     - theme: alt
       text: 个人主页
       link: https://xiaoying.org.cn
