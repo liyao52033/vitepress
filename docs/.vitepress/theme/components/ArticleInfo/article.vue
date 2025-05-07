@@ -60,6 +60,7 @@ const baseInfo = [
     title: "创建时间",
     icon: Calendar,
     data: unref(date),
+    href: "/archives",
     show: showDate,
   },
   {

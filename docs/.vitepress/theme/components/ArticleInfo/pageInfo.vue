@@ -91,22 +91,24 @@ onMounted(() => {
 
       <div v-if="wordCount" class="flx-center">
         <Icon><Reading /></Icon>
-        <a title="文章字数" class="hover-color">{{ pageViewInfo.wordCount }}</a>
+        <span title="文章字数" class="hover-color" style="cursor: pointer">{{ pageViewInfo.wordCount }}</span>
       </div>
 
       <div v-if="readingTime" class="flx-center">
         <Icon><Clock /></Icon>
-        <a title="预计阅读时长" class="hover-color">{{ pageViewInfo.readingTime }}</a>
+        <span title="预计阅读时长" class="hover-color" style="cursor: pointer">{{ pageViewInfo.readingTime }}</span>
       </div>
 
       <div v-if="pageView" class="flx-center">
         <Icon><View /></Icon>
-         <a title="本文总阅读量" id="busuanzi_page_pv" class="hover-color" href="https://busuanzi.9420.ltd" target="_blank"></a>
+         <a title="本文总阅读量" id="busuanzi_page_pv" class="hover-color" href="https://busuanzi.9420.ltd"
+            target="_blank"></a>
       </div>
 
        <div v-if="pageView" class="flx-center">
         <Icon><PieChart /></Icon>
-         <a title="本文总访客量" id="busuanzi_page_uv" class="hover-color" href="https://busuanzi.9420.ltd" target="_blank"></a>
+         <a title="本文总访客量" id="busuanzi_page_uv" class="hover-color" href="https://busuanzi.9420.ltd"
+            target="_blank"></a>
       </div>
     </div>
   </div>

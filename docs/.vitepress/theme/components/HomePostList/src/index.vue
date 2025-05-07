@@ -137,6 +137,19 @@ const handlePagination = () => {
   display: flex;
   justify-content: center;
   align-items: start;
+
+  @media (max-width: 768px) {
+    flex-wrap: wrap;
+
+   .home-content__post {
+      width: 100%;
+    }
+
+   .tk-postList__home-home-content__info {
+      width: 100%;
+      margin-top: 2rem;
+    }
+  }
 }
 
 .home-content__post {
@@ -144,6 +157,8 @@ const handlePagination = () => {
   margin: 0 2rem;
   max-width: 60rem;
 }
+
+
 
 
 </style>
