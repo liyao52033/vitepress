@@ -3,7 +3,7 @@ import { unref, onMounted, ref } from "vue";
 import { ArrowLeft, ArrowRight } from "@element-plus/icons-vue";
 import { useNamespace } from "../../../hooks";
 import { HomeCardProps } from "./homeCard";
-import { Icon } from "../../";
+import Icon from "../../Icon";
 
 defineOptions({ name: "HomeCard" });
 
@@ -82,6 +82,7 @@ onMounted(() => {
         </a>
         <span v-else class="title flx-align-center" v-html="title"></span>
       </slot>
+
       <slot name="page" v-bind="{ pagination }">
         <div v-if="page">
           <slot name="page-left" v-bind="{ pagination }">
@@ -97,6 +98,7 @@ onMounted(() => {
           </slot>
         </div>
       </slot>
+
     </div>
 
     <slot v-bind="{ transitionName, startAutoPage, closeAutoPage }" />

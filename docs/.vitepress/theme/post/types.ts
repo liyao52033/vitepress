@@ -111,11 +111,23 @@ export interface FrontMatter {
    */
   categories?: string[];
   /**
+   * 是否为分类页
+   */
+ // categoriesPage: boolean;
+  /**
+   * 是否为标签页
+   */
+  // tagsPage: boolean;
+  /**
+   * 是否为归档页
+   */
+ // archivesPage: boolean;
+  /**
    * 文章是否显示在侧边栏
    */
   sidebar: boolean;
   /**
-   * 是否问文章页
+   * 是否为文章页
    */
   article: boolean;
   /**

@@ -4,12 +4,13 @@ import { useRoute } from "vitepress";
 import { PaginationProps } from "element-plus";
 import {  Pagination } from "../../";
 import HomePostItem from "./HomePostItem.vue";
-import { usePosts, useUnrefData } from "../../configProvider";
+import { isCategoriesPage, isTagsPage, usePosts, useUnrefData } from "../../configProvider";
 import { useNamespace, useWindowSize } from "../../../hooks";
 import { TkContentData } from "../../../post/types";
 import HomeInfo from "../../HomeInfo";
+import ContributeChart from "../../common/ContributeChart.vue";
 
-defineOptions({ name: "HomePostList" });
+defineOptions({ name:"HomePostList" });
 
 const ns = useNamespace("postList");
 
@@ -73,14 +74,6 @@ onMounted(() => {
   }
 });
 
-// watch(
-//     route,
-//     () => {
-//       updateData();
-//     },
-//     { immediate: true }
-// );
-
 const pagePropsRef = reactive({ ...pageProps });
 
 if (pagePropsRef.size !== "small") {
@@ -106,10 +99,13 @@ const handlePagination = () => {
   // 更新数据
   updateData();
 };
+
+
 </script>
 
 <template>
   <div :class="ns.b()">
+   <contribute-chart v-if="isCategoriesPage() || isTagsPage() "/>
    <div class="Home">
       <div class="home-content__post">
         <ul>
@@ -132,6 +128,7 @@ const handlePagination = () => {
 </template>
 
 <style lang="scss" scoped>
+
 .Home{
   margin-top: 2rem;
   display: flex;
@@ -157,8 +154,5 @@ const handlePagination = () => {
   margin: 0 2rem;
   max-width: 60rem;
 }
-
-
-
 
 </style>

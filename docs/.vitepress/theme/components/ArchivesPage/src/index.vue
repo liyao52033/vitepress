@@ -18,7 +18,6 @@ const posts = usePosts();
       <div :class="ns.joinNamespace('page-title-h1')">{{ frontmatter.title }}</div>
       <div class="count">总共 {{ posts.sortPostsByDate.length }} 篇文章</div>
     </div>
-
     <div :class="ns.e('timeline')">
       <template v-for="(monthPosts, year) in posts.groupPostsByYearMonth" :key="year">
         <div :class="`${ns.em('timeline', 'year')} flx-justify-between`">

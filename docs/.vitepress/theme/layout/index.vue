@@ -20,7 +20,7 @@
 
    <template #home-features-after>
      <ClientOnly>
-        <HomePostList></HomePostList>
+       <HomePostList />
      </ClientOnly>
    </template>
 
@@ -32,8 +32,8 @@
 
    <template #page-top>
      <ClientOnly>
+       <contribute-chart/>
        <archives-page />
-       <catalogue-page />
      </ClientOnly>
    </template>
 
@@ -60,11 +60,12 @@ import {
   Footer,
   HomePostList,
   ArchivesPage,
-  CataloguePage,
   ArticleImagePreview,
   ArticlePageStyle,
   CodeBlockToggle
 } from "../components/index";
+import ContributeChart from "../components/common/ContributeChart.vue";
+
 
 const { Layout } = DefaultTheme
 

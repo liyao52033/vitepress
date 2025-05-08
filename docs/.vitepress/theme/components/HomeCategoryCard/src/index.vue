@@ -61,15 +61,6 @@ onMounted(() => {
 });
 
 
-// watch(
-//   route,
-//   () => {
-//     const c = new URL(window.location.href).searchParams.get("category");
-//     if (c && c != unref(category)) category.value = c;
-//   },
-//   { immediate: true }
-// );
-
 const itemRefs = ref<HTMLLIElement[]>([]);
 
 const categoriesPageLink = computed(() => {

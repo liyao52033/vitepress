@@ -26,21 +26,6 @@ onMounted(() => {
     );
   }
 });
-
-
-// watch(
-//   pageStyle,
-//   () => {
-//     const tkLayoutDom = document.querySelector(`.${ns.joinNamespace("layout")}`);
-//     // 清除可能已经存在的 pageStyle
-//     ["default", "card", "card-nav", "segment", "segment-nav"].forEach(item =>
-//       tkLayoutDom?.classList.remove(ns.joinNamespace(item))
-//     );
-//
-//     tkLayoutDom?.classList.add(ns.joinNamespace(unref(pageStyle)));
-//   },
-//   { immediate: true }
-// );
 </script>
 
 <template></template>

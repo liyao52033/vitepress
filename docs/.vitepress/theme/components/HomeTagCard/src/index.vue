@@ -62,16 +62,6 @@ onMounted(() => {
   }
 });
 
-
-// watch(
-//   route,
-//   () => {
-//     const t = new URL(window.location.href).searchParams.get("tag");
-//     if (t && t != unref(tag)) tag.value = t;
-//   },
-//   { immediate: true }
-// );
-
 const tagBgColor = bgColor || getBgColor();
 
 const getTagStyle = (index: number) => {
@@ -89,25 +79,27 @@ const tagsPageLink = computed(() => {
 </script>
 
 <template>
-  <HomeCard
-    :page="!tagsPage"
-    v-model="pageNum"
-    :pageSize="limit"
-    :total="tags.length"
-    :title="finalTitle[tagsPage ? 'pt' : 'ht']"
-    :title-link="tagsPageLink"
-    :autoPage
-    :pageSpeed
-    :class="ns.b()"
-  >
+  <div>
+    <HomeCard
+        :page="!tagsPage"
+        v-model="pageNum"
+        :pageSize="limit"
+        :total="tags.length"
+        :title="finalTitle[tagsPage ? 'pt' : 'ht']"
+        :title-link="tagsPageLink"
+        :autoPage
+        :pageSpeed
+        :class="ns.b()"
+    >
+
     <template #default="{ transitionName }">
       <TransitionGroup v-if="tags.length" :name="transitionName" tag="div" mode="out-in" :class="ns.e('list')">
         <a
-          v-for="(item, index) in currentTags"
-          :key="item.name"
-          :style="getTagStyle(index)"
-          :href="`${tagsPageLink}?tag=${encodeURIComponent(item.name)}`"
-          :class="{ active: item.name === tag }"
+            v-for="(item, index) in currentTags"
+            :key="item.name"
+            :style="getTagStyle(index)"
+            :href="`${tagsPageLink}?tag=${encodeURIComponent(item.name)}`"
+            :class="{ active: item.name === tag }"
         >
           {{ item.name }}
         </a>
@@ -118,4 +110,10 @@ const tagsPageLink = computed(() => {
       <div v-else :class="ns.m('empty')">暂无热门标签</div>
     </template>
   </HomeCard>
+  </div>
+
+
 </template>
+
+
+
