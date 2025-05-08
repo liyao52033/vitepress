@@ -7,24 +7,25 @@ const tkConfig = tkThemeConfig({
         createTime: "2025-03-08",
     },
     vitePlugins: {
-        permalinkOption: { path: "docs",  ignoreList: ["login.md"], },
+        permalinkOption: { path: "docs",  ignoreList: ["login.md", "pages"], },
         sidebarOption: {
             path: "docs",
             collapsed: true,
             depth: 2,
             ignoreIndexMd: true,
-            ignoreList: ["login.md", "@pages", "utils", "@fragment"],
+            ignoreList: ["login.md", "@pages", "utils", "@fragment", "pages"],
         },
         autoFrontmatterOption: {
             pattern: "**/*.md",
-            globOptions: { ignore: ["utils", "index.md", "login.md"] }
+            globOptions: { ignore: ["utils", "index.md", "login.md", "pages"] }
         },
         catalogueOption:{
-            path: "docs"
+            path: "docs",
+            ignoreList: ["pages"]
         },
         docAnalysisOption:{
             path: "docs",
-            ignoreList: ["login.md"]
+            ignoreList: ["login.md", "pages"]
         }
     }
 });
@@ -45,8 +46,14 @@ export default defineConfig({
     ],
     vite: {
         plugins: [
-
+            // copyPermalinkMdPlugin({
+            //     sourceDir: resolve(__dirname, '../articles'), // 源文件夹
+            //     targetDir: resolve(__dirname, '../pages')     // 输出文件夹
+            // })
         ],
+        build: {
+            chunkSizeWarningLimit: 1500,
+        }
     },
     markdown: {
         lineNumbers: true,
@@ -67,6 +74,7 @@ export default defineConfig({
     },
     cleanUrls: true,
     cacheDir: '.vite-cache',
+    metaChunk: true,
     sitemap: {
         hostname: 'https://vitepress.xiaoying.org.cn/'
     },

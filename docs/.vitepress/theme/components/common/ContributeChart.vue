@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import * as echarts from "echarts"
-import { ref, watch, nextTick, computed, useTemplateRef, onMounted, onBeforeUnmount } from "vue";
+import { ref, watch, nextTick, computed, useTemplateRef, onMounted } from "vue";
 import { useData } from "vitepress";
 import { usePosts } from "../configProvider";
 import { formatDate } from "../../helper";
@@ -23,7 +23,7 @@ const contributeList = computed(() => {
   const contributeObject = ref({});
 
   posts.value.sortPostsByDate.forEach(item => {
-    const date = item.date.substring(0, 10);
+    const date = item.date?.substring(0, 10) || formatDate(new Date(), "yyyy-MM-dd");
     if (contributeObject.value[date]) contributeObject.value[date]++;
     else contributeObject.value[date] = 1;
   });

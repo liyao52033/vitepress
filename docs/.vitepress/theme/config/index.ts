@@ -34,11 +34,11 @@ export default function tkThemeConfig(config: TkThemeConfig = { tkTheme: true })
 
   // 定义各插件扫描时忽略的目录
   const ignoreDir = {
-    autoFrontmatter: ["**/@pages/**", ".vite-cache"],
-    sidebar: ["@pages", "@fragment", ".vite-cache"],
-    categories: ["@fragment", "articles", ".vite-cache"],
-    docAnalysis: ["@pages", /目录页/, ".vite-cache"],
-    fileContentLoader: ["**/components/**", "**/.vitepress/**", "**/public/**", "**/*目录页*/**", ".vite-cache"],
+    autoFrontmatter: ["**/@pages/**", ".vite-cache", "**/pages/**"],
+    sidebar: ["@pages", "@fragment", ".vite-cache", "pages"],
+    categories: ["@fragment", "articles", ".vite-cache", "pages"],
+    docAnalysis: ["@pages", /目录页/, ".vite-cache", "pages"],
+    fileContentLoader: ["**/components/**", "**/.vitepress/**", "**/public/**", "**/pages/**", ".vite-cache"],
   };
 
   // 自动生成 frontmatter 插件
@@ -60,7 +60,7 @@ export default function tkThemeConfig(config: TkThemeConfig = { tkTheme: true })
     };
 
     // 自定义 frontmatter 内容，添加永久链接和分类
-    autoFrontmatterOption.transform = (frontmatter, fileInfo: FileInfo) => {
+    autoFrontmatterOption.transform = (frontmatter: any, fileInfo: FileInfo) => {
       let transformResult = transform?.(frontmatter, fileInfo) || {};
 
      if ((permalink && !frontmatter.permalink) || !frontmatter.author) {
